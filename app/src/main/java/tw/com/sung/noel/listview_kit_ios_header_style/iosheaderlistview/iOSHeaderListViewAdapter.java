@@ -42,7 +42,6 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     @groupType
     int groupType = GROUP_TYPE_DEFAULT;
 
-
     @Override
     public int getViewTypeCount() {
         return 2;
@@ -50,10 +49,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        //第0項所屬header不需要設置
-//        if (position == 0 || (position > 0 && !getHeaderAccordingTo(position - 1).equals(getHeaderAccordingTo(position)))) {
-        if ( position > 0 && !getHeaderAccordingTo(position - 1).equals(getHeaderAccordingTo(position))) {
-
+        if (position > 0 && !getHeaderAccordingTo(position - 1).equals(getHeaderAccordingTo(position))) {
             return HEADER;
         }
         return ITEM;
@@ -78,7 +74,6 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
         return getCustomItemView(position, view, viewGroup);
     }
     //----------------------
-
     /**
      * 進行自動分類重組
      */
@@ -95,7 +90,6 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
         }
         return reGroupData;
     }
-
 
     //----------------------
 
@@ -164,18 +158,17 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
 
         for (int i = 0; i < data.size(); i++) {
             for (int j = 0; j < data.size(); j++) {
+                //firstType與各項目逐次比較若不相等 且 allTypes中沒有該項目 則加入allTypes
                 if (!firstType.equals(getHeaderAccordingTo(j)) && !allTypes.contains(getHeaderAccordingTo(j))) {
                     allTypes.add(getHeaderAccordingTo(j));
                     firstType = getHeaderAccordingTo(j);
                 }
             }
         }
-
         return allTypes;
     }
 
     //----------------------
-
     /**
      * 讓使用者決定 要不要 依照類別重組,預設為不協助重組 ->GROUP_TYPE_DEFAULT
      */
@@ -186,5 +179,4 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     public void setGroupType(@groupType int groupType) {
         this.groupType = groupType;
     }
-
 }

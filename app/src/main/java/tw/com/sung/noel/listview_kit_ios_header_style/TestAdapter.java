@@ -51,6 +51,7 @@ public class TestAdapter extends iOSHeaderListViewAdapter {
         return position;
     }
 
+
     @Override
     public View setCustomHeaderView(int position, View convertView, ViewGroup viewGroup) {
         ViewHeaderHolder holder;
