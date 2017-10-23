@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -74,6 +75,7 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
      */
     private void initListView() {
         listView.setLayoutParams(getViewLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0, 1));
+        listView.setOnScrollListener(this);//必須監聽
     }
 
     //----------------------
@@ -129,8 +131,11 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         iOSHeaderListViewAdapter adapter = (iOSHeaderListViewAdapter) adapterView.getAdapter();
         if (adapter.getItemViewType(i) != iOSHeaderListViewAdapter.HEADER) {
-            //被套件使用者覆寫的行為
-            oniOSHeaderListViewItemClickListener.oniOSHeaderListViewItemClick(adapterView, view, i, l);
+
+            if (oniOSHeaderListViewItemClickListener != null) {
+                //被套件使用者覆寫的行為
+                oniOSHeaderListViewItemClickListener.oniOSHeaderListViewItemClick(adapterView, view, i, l);
+            }
         }
     }
 
@@ -160,8 +165,10 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     @Override
     public void onScrollStateChanged(AbsListView absListView, int scrollState) {
 
-        //被套件使用者覆寫的行為
-        oniOSHeaderListViewScrollListener.oniOSHeaderListViewScrollStateChanged(absListView, scrollState);
+        if (oniOSHeaderListViewScrollListener != null) {
+            //被套件使用者覆寫的行為
+            oniOSHeaderListViewScrollListener.oniOSHeaderListViewScrollStateChanged(absListView, scrollState);
+        }
     }
 
     //滾動時
@@ -182,8 +189,10 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
             updateHeaderView(firstVisibleItem, absListView);
         }
 
-        //被套件使用者覆寫的行為
-        oniOSHeaderListViewScrollListener.oniOSHeaderListViewScroll(absListView, firstVisibleItem, visibleItemCount, totalItemCount);
+        if (oniOSHeaderListViewScrollListener != null) {
+            //被套件使用者覆寫的行為
+            oniOSHeaderListViewScrollListener.oniOSHeaderListViewScroll(absListView, firstVisibleItem, visibleItemCount, totalItemCount);
+        }
     }
     //----------------------
 
@@ -209,8 +218,10 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        //被套件使用者覆寫的行為
-        oniOSHeaderListViewItemLongClickListener.oniOSHeaderListViewItemLongClick(adapterView, view, i, l);
+        if (oniOSHeaderListViewItemLongClickListener != null) {
+            //被套件使用者覆寫的行為
+            oniOSHeaderListViewItemLongClickListener.oniOSHeaderListViewItemLongClick(adapterView, view, i, l);
+        }
         return true;
     }
     //----------------------

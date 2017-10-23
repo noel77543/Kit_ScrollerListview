@@ -28,28 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state relative-caret-position="334">
+              <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iOSHeaderListView.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="iOSHeaderListView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="224" selection-end-column="94" />
+            <state relative-caret-position="-871">
+              <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
               <folding>
-                <element signature="e#3720#3721#0" expanded="true" />
-                <element signature="e#3773#3774#0" expanded="true" />
-                <element signature="e#4925#4926#0" expanded="true" />
-                <element signature="e#4975#4976#0" expanded="true" />
-                <element signature="e#6797#6798#0" expanded="true" />
-                <element signature="e#6854#6855#0" expanded="true" />
+                <element signature="e#3805#3806#0" expanded="true" />
+                <element signature="e#3858#3859#0" expanded="true" />
+                <element signature="e#5097#5098#0" expanded="true" />
+                <element signature="e#5147#5148#0" expanded="true" />
+                <element signature="e#7119#7120#0" expanded="true" />
+                <element signature="e#7176#7177#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -58,8 +58,8 @@
       <file leaf-file-name="iOSHeaderListViewAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3375">
-              <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+            <state relative-caret-position="970">
+              <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
               <folding>
                 <element signature="e#3660#3661#0" expanded="true" />
                 <element signature="e#3713#3714#0" expanded="true" />
@@ -1938,14 +1938,14 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewMotion.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/TestAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-22" />
+    <option name="x" value="-1" />
     <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1337" />
@@ -2382,7 +2382,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-22" y="23" width="2560" height="1337" extended-state="0" />
+    <frame x="-1" y="23" width="2560" height="1337" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2460,18 +2460,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3375">
-          <caret line="148" column="0" selection-start-line="148" selection-start-column="0" selection-end-line="148" selection-end-column="0" />
+        <state relative-caret-position="970">
+          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
           <folding>
             <element signature="e#3660#3661#0" expanded="true" />
             <element signature="e#3713#3714#0" expanded="true" />
@@ -2483,16 +2475,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="224" selection-end-column="94" />
+        <state relative-caret-position="-871">
+          <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
           <folding>
-            <element signature="e#3720#3721#0" expanded="true" />
-            <element signature="e#3773#3774#0" expanded="true" />
-            <element signature="e#4925#4926#0" expanded="true" />
-            <element signature="e#4975#4976#0" expanded="true" />
-            <element signature="e#6797#6798#0" expanded="true" />
-            <element signature="e#6854#6855#0" expanded="true" />
+            <element signature="e#3805#3806#0" expanded="true" />
+            <element signature="e#3858#3859#0" expanded="true" />
+            <element signature="e#5097#5098#0" expanded="true" />
+            <element signature="e#5147#5148#0" expanded="true" />
+            <element signature="e#7119#7120#0" expanded="true" />
+            <element signature="e#7176#7177#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
