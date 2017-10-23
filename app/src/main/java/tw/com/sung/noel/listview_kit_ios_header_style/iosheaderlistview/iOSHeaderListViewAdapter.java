@@ -42,6 +42,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     @groupType
     int groupType = GROUP_TYPE_DEFAULT;
 
+
     @Override
     public int getViewTypeCount() {
         return 2;
@@ -49,8 +50,10 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        //第0項所屬header不需要設置＠＠？
-        if (position == 0 || (position > 0 && !getHeaderAccordingTo(position - 1).equals(getHeaderAccordingTo(position)))) {
+        //第0項所屬header不需要設置
+//        if (position == 0 || (position > 0 && !getHeaderAccordingTo(position - 1).equals(getHeaderAccordingTo(position)))) {
+        if ( position > 0 && !getHeaderAccordingTo(position - 1).equals(getHeaderAccordingTo(position))) {
+
             return HEADER;
         }
         return ITEM;
@@ -60,18 +63,8 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup viewGroup) {
         ArrayList data = getData();
         //若要重組
-        if (groupType == GROUP_TYPE_REGROUP) {
-            ArrayList reGroupData = new ArrayList();
-            ArrayList<String> allTypes = getAllHeaderTypes();
-
-            for (int i = 0; i < allTypes.size(); i++) {
-                for (int j = 0; j < data.size(); j++) {
-                    if (allTypes.get(i).equals(getHeaderAccordingTo(j))) {
-                        reGroupData.add(data.get(j));
-                    }
-                }
-            }
-            setData(reGroupData);
+        if (getGroupType() == GROUP_TYPE_REGROUP) {
+            setData(getReGroupData(data));
         }
 
         if (getItemViewType(position) == HEADER) {
@@ -84,6 +77,25 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
         }
         return getCustomItemView(position, view, viewGroup);
     }
+    //----------------------
+
+    /**
+     * 進行自動分類重組
+     */
+    private ArrayList getReGroupData(ArrayList data) {
+        ArrayList reGroupData = new ArrayList();
+        ArrayList<String> allTypes = getAllHeaderTypes();
+
+        for (int i = 0; i < allTypes.size(); i++) {
+            for (int j = 0; j < data.size(); j++) {
+                if (allTypes.get(i).equals(getHeaderAccordingTo(j))) {
+                    reGroupData.add(data.get(j));
+                }
+            }
+        }
+        return reGroupData;
+    }
+
 
     //----------------------
 
@@ -96,7 +108,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     /**
      * 取得headerView
      */
-    private View getCustomHeaderView(int position, View convertView, ViewGroup viewGroup) {
+    public View getCustomHeaderView(int position, View convertView, ViewGroup viewGroup) {
         return setCustomHeaderView(position, convertView, viewGroup);
     }
     //----------------------
@@ -119,6 +131,9 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
      */
     public abstract ArrayList getData();
 
+    /**
+     * 重新設置資料
+     */
     public void setData(ArrayList newData) {
         getData().clear();
         getData().addAll(newData);
@@ -134,7 +149,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     /**
      * 取得標題依據
      */
-    private String getHeaderAccordingTo(int position) {
+    public String getHeaderAccordingTo(int position) {
         return setHeaderAccordingTo(position);
     }
 
@@ -144,7 +159,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     private ArrayList<String> getAllHeaderTypes() {
         ArrayList data = getData();
         ArrayList<String> allTypes = new ArrayList<>();
-        String firstType = getHeaderAccordingTo(0);
+        String firstType = getHeaderAccordingTo(0);//直接先放入第一個項目所屬tag
         allTypes.add(firstType);
 
         for (int i = 0; i < data.size(); i++) {
@@ -171,4 +186,5 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     public void setGroupType(@groupType int groupType) {
         this.groupType = groupType;
     }
+
 }

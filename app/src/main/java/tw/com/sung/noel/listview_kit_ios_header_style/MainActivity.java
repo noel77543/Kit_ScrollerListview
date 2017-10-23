@@ -11,6 +11,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -21,14 +22,13 @@ import tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeade
 
 import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter.HEADER;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
+public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewItemClickListener, iOSHeaderListView.OniOSHeaderListViewScrollListener, iOSHeaderListView.OniOSHeaderListViewItemLongClickListener {
 
     @BindView(R.id.listview)
     iOSHeaderListView listview;
     @BindView(R.id.layout_view)
     LinearLayout layoutView;
 
-    private LayoutInflater inflater;
     private TestAdapter adapter;
     private ArrayList<TestModel> testModles;
 
@@ -39,17 +39,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         ButterKnife.bind(this);
 
         init();
-
-
     }
 
     private void init() {
         adapter = new TestAdapter(this);
-        listview.setAdapter(adapter);
+        listview.setiOSHeaderListViewAdapter(adapter);
         adapter.updateData(getData());
         adapter.setGroupType(iOSHeaderListViewAdapter.GROUP_TYPE_REGROUP);
-//        listview.setOnItemClickListener(this);
-//        listview.setOnScrollListener(this);
+
+        listview.setOniOSHeaderListViewItemClickListener(this);
+        listview.setOniOSHeaderListViewScrollListener(this);
+        listview.setOniOSHeaderListViewItemLongClickListener(this);
     }
 
     private ArrayList<TestModel> getData() {
@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         testModles.add(new TestModel("G", "97", "", "", "A"));
         testModles.add(new TestModel("H", "97", "", "", "A"));
         testModles.add(new TestModel("I", "90", "", "", "A"));
-        testModles.add(new TestModel("J", "90", "", "", "A"));
         testModles.add(new TestModel("K", "10", "", "", "A"));
         testModles.add(new TestModel("ZZ", "21", "", "", "C"));
 
@@ -74,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         testModles.add(new TestModel("P", "20", "", "", "B"));
         testModles.add(new TestModel("Q", "21", "", "", "B"));
         testModles.add(new TestModel("R", "21", "", "", "B"));
+        testModles.add(new TestModel("J", "90", "", "", "A"));
 
         testModles.add(new TestModel("S", "21", "", "", "C"));
         testModles.add(new TestModel("T", "21", "", "", "C"));
@@ -87,33 +87,25 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return testModles;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Log.e("第" + i, testModles.get(i).getName());
-    }
-
 
     @Override
-    public void onScrollStateChanged(AbsListView absListView, int i) {
-
+    public void oniOSHeaderListViewItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        TestModel testModel = (TestModel) adapterView.getAdapter().getItem(i);
+        Log.e("第" + i, testModel.getTag());
     }
 
     @Override
-    public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+    public void oniOSHeaderListViewScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 
-        //從第二個開始 因為第一個一定是title了
-        if (firstVisibleItem > 0) {
-            //幕前最上面項目的種類
-            int nowItemType = absListView.getAdapter().getItemViewType(firstVisibleItem);
-            //取得前一個項目的種類
-            int previousItemType = absListView.getAdapter().getItemViewType(firstVisibleItem - 1);
+    }
 
-            //前一項跟目前置頂的項目種類不同 則...
-            if (nowItemType != previousItemType) {
+    @Override
+    public void oniOSHeaderListViewScrollStateChanged(AbsListView absListView, int i) {
 
-            } else {
+    }
 
-            }
-        }
+    @Override
+    public void oniOSHeaderListViewItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
     }
 }
