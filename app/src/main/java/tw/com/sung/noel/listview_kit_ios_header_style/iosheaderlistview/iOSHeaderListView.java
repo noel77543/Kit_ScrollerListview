@@ -16,6 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import tw.com.sung.noel.listview_kit_ios_header_style.MainActivity;
+import tw.com.sung.noel.listview_kit_ios_header_style.scrollLayout.ScrollLayout;
+
+import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter.HEADER;
 
 
 /**
@@ -28,13 +31,13 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     private OniOSHeaderListViewScrollListener oniOSHeaderListViewScrollListener;
     private OniOSHeaderListViewItemLongClickListener oniOSHeaderListViewItemLongClickListener;
 
-    private ViewGroup.MarginLayoutParams marginLayoutParams;
     private iOSHeaderListViewAdapter adapter;
     private ListView listView;
     private Context context;
     private View headerView;
     private String TAG = "iOSHeaderListView";
 
+    private ScrollLayout scrollLayout;
 
     public iOSHeaderListView(Context context) {
         super(context);
@@ -63,6 +66,7 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     private void init() {
         setOrientation(VERTICAL);
         listView = new ListView(context);
+        scrollLayout = new ScrollLayout(context);
         initListView();
         addView(listView);
 
@@ -130,7 +134,7 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         iOSHeaderListViewAdapter adapter = (iOSHeaderListViewAdapter) adapterView.getAdapter();
-        if (adapter.getItemViewType(i) != iOSHeaderListViewAdapter.HEADER) {
+        if (adapter.getItemViewType(i) != HEADER) {
 
             if (oniOSHeaderListViewItemClickListener != null) {
                 //被套件使用者覆寫的行為
@@ -189,6 +193,12 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
             updateHeaderView(firstVisibleItem, absListView);
         }
 
+
+
+
+
+
+
         if (oniOSHeaderListViewScrollListener != null) {
             //被套件使用者覆寫的行為
             oniOSHeaderListViewScrollListener.oniOSHeaderListViewScroll(absListView, firstVisibleItem, visibleItemCount, totalItemCount);
@@ -225,24 +235,21 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
         return true;
     }
     //----------------------
-
     /**
      * 更新headerview 並且加入在上方
      */
     private void updateHeaderView(int firstVisibleItem, AbsListView absListView) {
-
-//        View  firstView = absListView.getChildAt(firstVisibleItem-1);
-//        View  secondView = absListView.getChildAt(firstVisibleItem);
-//        marginLayoutParams = new ViewGroup.MarginLayoutParams(headerView.getLayoutParams());
-
         if (headerView != null) {
-            removeView(headerView);
+            scrollLayout.removeView(headerView);
         }
-        headerView = adapter.getCustomHeaderView(firstVisibleItem, headerView, absListView);
-        addView(headerView, 0);
+        if (scrollLayout != null) {
+            removeView(scrollLayout);
+        }
 
-//        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(headerView.getLayoutParams());
-//        layoutParams.setMargins(layoutParams.leftMargin, 0, layoutParams.rightMargin, headerView.getHeight()+10);
-//        headerView.setLayoutParams(layoutParams);
+        headerView = adapter.getCustomHeaderView(firstVisibleItem, headerView, absListView);
+        headerView.setLayoutParams(getViewLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        addView(scrollLayout, 0);
+        scrollLayout.setContentView(headerView);
     }
+    //----------------------
 }

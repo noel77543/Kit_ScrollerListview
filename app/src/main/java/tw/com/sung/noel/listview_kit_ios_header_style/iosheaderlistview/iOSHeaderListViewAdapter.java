@@ -10,6 +10,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 
+import tw.com.sung.noel.listview_kit_ios_header_style.scrollLayout.ScrollLayout;
+
 
 /**
  * Created by noel on 2017/10/12.
@@ -115,7 +117,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     /**
      * 取得一般itemView
      */
-    private View getCustomItemView(int position, View convertView, ViewGroup viewGroup) {
+    public View getCustomItemView(int position, View convertView, ViewGroup viewGroup) {
         return setCustomItemView(position, convertView, viewGroup);
     }
     //----------------------

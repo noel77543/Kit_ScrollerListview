@@ -25,6 +25,7 @@ public class TestAdapter extends iOSHeaderListViewAdapter {
     private ArrayList<TestModel> dataList;
 
 
+
     public TestAdapter(Context context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
