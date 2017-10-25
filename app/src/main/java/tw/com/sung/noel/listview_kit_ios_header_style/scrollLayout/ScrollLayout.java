@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
-import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,38 +19,23 @@ import android.widget.TextView;
 
 public class ScrollLayout extends LinearLayout {
 
-    private ViewDragHelper viewDragHelper;
-
-    private final double SCROLL_SPEED = 50.0;
-    private final int SECONDVIEW_WIDTH = 250;
-    private View contentView;
-    private LinearLayout secondView;
-    private TextView tvDelete;
-    private int dragDistance;
-    private int draggedX;
-
+    private final double SCROLL_SPEED = 30.0;
+    private final int TEXTVIEW_DELETE_WIDTH = 250;
     private Context context;
+
+    private String deleteType;
+    private ViewDragHelper viewDragHelper;
+    private View contentView;
+    private TextView tvDelete;
+    private int draggedX;
+    private OnDeleteClickListener onDeleteClickListener;
 
     public ScrollLayout(Context context) {
         super(context);
         this.context = context;
 
-        initSecondView();
         initDeleteTextView();
-        secondView.addView(tvDelete);
-        addView(secondView);
-        viewDragHelper = ViewDragHelper.create(this, new DragHelperCallback());
-    }
-
-    public ScrollLayout(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
-        this.context = context;
-        viewDragHelper = ViewDragHelper.create(this, new DragHelperCallback());
-    }
-
-    public ScrollLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        this.context = context;
+        addView(tvDelete);
         viewDragHelper = ViewDragHelper.create(this, new DragHelperCallback());
     }
     //-------------------------------
@@ -65,20 +49,23 @@ public class ScrollLayout extends LinearLayout {
         addView(contentView, 0);
         setLayoutParams(getViewLayoutParams(contentView.getLayoutParams().width, contentView.getLayoutParams().height));
     }
-    //-------------------------------
 
+    //-------------------------------
     /**
-     * 初始化secondview
-     */
-    private void initSecondView() {
-        secondView = new LinearLayout(context);
-        secondView.setLayoutParams(getViewLayoutParams(SECONDVIEW_WIDTH, ViewGroup.LayoutParams.MATCH_PARENT));
-        secondView.setGravity(Gravity.END);
+     * 設置deleteType
+     * */
+    public void setDeleteType(String deleteType) {
+        this.deleteType = deleteType;
     }
+
+    public String getDeleteType() {
+        return deleteType;
+    }
+
     //-------------------------------
 
     /**
-     * 初始化DeleteImageView
+     * 初始化DeleteTextView
      */
     private void initDeleteTextView() {
         tvDelete = new TextView(context);
@@ -86,100 +73,114 @@ public class ScrollLayout extends LinearLayout {
         tvDelete.setTextSize(16);
         tvDelete.setTextColor(Color.WHITE);
         tvDelete.setBackgroundColor(Color.RED);
-        tvDelete.setLayoutParams(getViewLayoutParams(SECONDVIEW_WIDTH, ViewGroup.LayoutParams.MATCH_PARENT));
-        tvDelete.setPadding(15, 0, 15, 0);
+        tvDelete.setLayoutParams(getViewLayoutParams(TEXTVIEW_DELETE_WIDTH, ViewGroup.LayoutParams.MATCH_PARENT));
         tvDelete.setGravity(Gravity.CENTER);
         tvDelete.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO: 2017/10/24  點擊後需要做 依照判斷是屬於header還是item  分別做 整類別刪除 與該項刪除
 
-
-
-
+                onDeleteClickListener.onDeleteClick(getDeleteType());
             }
         });
     }
 
     //-------------------------------
+
+    /**
+     * interface 當按下delete 的接口
+     */
+    public interface OnDeleteClickListener {
+        void onDeleteClick(String deleteType);
+    }
+
+    public void setOnDeleteClickListener(OnDeleteClickListener onDeleteClickListener) {
+        this.onDeleteClickListener = onDeleteClickListener;
+    }
+
+
+    //-------------------------------
+
+    /**
+     * 當所有addview 行為結束
+     */
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
 
         contentView = getChildAt(0);
-        secondView = (LinearLayout) getChildAt(1);
-        secondView.setVisibility(GONE);
+        tvDelete = (TextView) getChildAt(1);
+        tvDelete.setVisibility(GONE);
     }
-    //-------------------------------
 
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-        dragDistance = secondView.getMeasuredWidth();
-    }
-    //-------------------------------
-
+    //------------------------
     private class DragHelperCallback extends ViewDragHelper.Callback {
 
         @Override
         public boolean tryCaptureView(View view, int i) {
-            return view == contentView || view == secondView;
+            return view == contentView || view == tvDelete;
         }
 
+        //------------------------
         @Override
         public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
             draggedX = left;
             if (changedView == contentView) {
-                secondView.offsetLeftAndRight(dx);
+                tvDelete.offsetLeftAndRight(dx);
             } else {
                 contentView.offsetLeftAndRight(dx);
             }
-            if (secondView.getVisibility() == View.GONE) {
-                secondView.setVisibility(View.VISIBLE);
+            if (tvDelete.getVisibility() == View.GONE) {
+                tvDelete.setVisibility(View.VISIBLE);
             }
             invalidate();
         }
 
+        //------------------------
+
+        /**
+         * 定義水平滑動
+         */
         @Override
         public int clampViewPositionHorizontal(View child, int left, int dx) {
             if (child == contentView) {
                 final int leftBound = getPaddingLeft();
-                final int minLeftBound = -leftBound - dragDistance;
+                final int minLeftBound = -leftBound - TEXTVIEW_DELETE_WIDTH;
                 final int newLeft = Math.min(Math.max(minLeftBound, left), 0);
                 return newLeft;
             } else {
-                final int minLeftBound = getPaddingLeft() + contentView.getMeasuredWidth() - dragDistance;
+                final int minLeftBound = getPaddingLeft() + contentView.getMeasuredWidth() - TEXTVIEW_DELETE_WIDTH;
                 final int maxLeftBound = getPaddingLeft() + contentView.getMeasuredWidth() + getPaddingRight();
                 final int newLeft = Math.min(Math.max(left, minLeftBound), maxLeftBound);
                 return newLeft;
             }
         }
+        //------------------------
 
+        /**
+         * 第二個VIEW的寬度
+         */
         @Override
         public int getViewHorizontalDragRange(View child) {
-            return dragDistance;
+            return TEXTVIEW_DELETE_WIDTH;
         }
 
         @Override
         public void onViewReleased(View releasedChild, float xvel, float yvel) {
             super.onViewReleased(releasedChild, xvel, yvel);
             boolean settleToOpen = false;
-            if (xvel > SCROLL_SPEED) {
-                settleToOpen = false;
-            } else if (xvel < -SCROLL_SPEED) {
+
+            if (xvel < -SCROLL_SPEED || draggedX <= -TEXTVIEW_DELETE_WIDTH ) {
                 settleToOpen = true;
-            } else if (draggedX <= -dragDistance / 2) {
-                settleToOpen = true;
-            } else if (draggedX > -dragDistance / 2) {
-                settleToOpen = false;
             }
 
-            final int settleDestX = settleToOpen ? -dragDistance : 0;
+            final int settleDestX = settleToOpen ? -TEXTVIEW_DELETE_WIDTH : 0;
             viewDragHelper.smoothSlideViewTo(contentView, settleDestX, 0);
             ViewCompat.postInvalidateOnAnimation(ScrollLayout.this);
         }
     }
+
+    //------------------------
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
@@ -188,6 +189,7 @@ public class ScrollLayout extends LinearLayout {
         }
         return super.onInterceptTouchEvent(ev);
     }
+    //------------------------
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -202,8 +204,6 @@ public class ScrollLayout extends LinearLayout {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
-
-
     //----------------------
 
     /**
@@ -223,6 +223,4 @@ public class ScrollLayout extends LinearLayout {
         layoutParams.setMargins(marginL, marginT, marginR, marginB);
         return layoutParams;
     }
-
-
 }

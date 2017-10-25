@@ -22,12 +22,10 @@ import tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeade
 
 import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter.HEADER;
 
-public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewItemClickListener, iOSHeaderListView.OniOSHeaderListViewScrollListener, iOSHeaderListView.OniOSHeaderListViewItemLongClickListener {
+public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewItemClickListener, iOSHeaderListView.OniOSHeaderListViewScrollListener, iOSHeaderListView.OniOSHeaderListViewItemLongClickListener, iOSHeaderListView.OniOSHeaderListViewHeaderClickListener {
 
     @BindView(R.id.listview)
     iOSHeaderListView listview;
-    @BindView(R.id.layout_view)
-    LinearLayout layoutView;
 
     private TestAdapter adapter;
     private ArrayList<TestModel> testModles;
@@ -46,10 +44,12 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
         listview.setiOSHeaderListViewAdapter(adapter);
         adapter.updateData(getData());
         adapter.setGroupType(iOSHeaderListViewAdapter.GROUP_TYPE_REGROUP);
+        adapter.setViewType(iOSHeaderListViewAdapter.VIEW_TYPE_SCROLL);
 
         listview.setOniOSHeaderListViewItemClickListener(this);
         listview.setOniOSHeaderListViewScrollListener(this);
         listview.setOniOSHeaderListViewItemLongClickListener(this);
+        listview.setOniOSHeaderListViewHeaderClickListener(this);
     }
 
     private ArrayList<TestModel> getData() {
@@ -113,6 +113,11 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
 
     @Override
     public void oniOSHeaderListViewItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void oniOSHeaderListViewHeaderClick(AdapterView<?> adapterView, View view, int i, long l) {
 
     }
 }

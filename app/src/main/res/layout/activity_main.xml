@@ -4,12 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <!--<ListView-->
-    <!--android:id="@+id/listview"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--/>-->
     <tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListView
         android:id="@+id/listview"
         android:layout_width="match_parent"
