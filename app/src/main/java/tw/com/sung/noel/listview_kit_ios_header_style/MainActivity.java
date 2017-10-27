@@ -22,7 +22,7 @@ import tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeade
 
 import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter.HEADER;
 
-public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewItemClickListener, iOSHeaderListView.OniOSHeaderListViewScrollListener, iOSHeaderListView.OniOSHeaderListViewItemLongClickListener, iOSHeaderListView.OniOSHeaderListViewHeaderClickListener {
+public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewItemClickListener, iOSHeaderListView.OniOSHeaderListViewScrollListener, iOSHeaderListView.OniOSHeaderListViewItemLongClickListener, iOSHeaderListView.OniOSHeaderListViewHeaderClickListener, iOSHeaderListView.OniOSHeaderListViewRightScrollListener, iOSHeaderListView.OniOSHeaderListViewLeftScrollListener {
 
     @BindView(R.id.listview)
     iOSHeaderListView listview;
@@ -44,52 +44,54 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
         listview.setiOSHeaderListViewAdapter(adapter);
         adapter.updateData(getData());
         adapter.setGroupType(iOSHeaderListViewAdapter.GROUP_TYPE_REGROUP);
-        adapter.setViewType(iOSHeaderListViewAdapter.VIEW_TYPE_SCROLL);
 
         listview.setOniOSHeaderListViewItemClickListener(this);
         listview.setOniOSHeaderListViewScrollListener(this);
         listview.setOniOSHeaderListViewItemLongClickListener(this);
         listview.setOniOSHeaderListViewHeaderClickListener(this);
+        listview.setOniOSHeaderListViewRightScrollListener(this);
+//        listview.setOniOSHeaderListViewLeftScrollListener(this);
+
     }
 
     private ArrayList<TestModel> getData() {
         testModles = new ArrayList<>();
         testModles.add(new TestModel("A", "99", "", "", "A"));
-        testModles.add(new TestModel("B", "99", "", "", "A"));
-        testModles.add(new TestModel("C", "99", "", "", "A"));
-        testModles.add(new TestModel("D", "99", "", "", "A"));
-        testModles.add(new TestModel("E", "99", "", "", "A"));
-        testModles.add(new TestModel("F", "97", "", "", "A"));
-        testModles.add(new TestModel("G", "97", "", "", "A"));
-        testModles.add(new TestModel("H", "97", "", "", "A"));
-        testModles.add(new TestModel("I", "90", "", "", "A"));
-        testModles.add(new TestModel("K", "10", "", "", "A"));
-        testModles.add(new TestModel("ZZ", "21", "", "", "C"));
+        testModles.add(new TestModel("A", "99", "", "", "A"));
+        testModles.add(new TestModel("A", "99", "", "", "A"));
+        testModles.add(new TestModel("A", "99", "", "", "A"));
+        testModles.add(new TestModel("A", "99", "", "", "A"));
+        testModles.add(new TestModel("A", "97", "", "", "A"));
+        testModles.add(new TestModel("A", "97", "", "", "A"));
+        testModles.add(new TestModel("A", "97", "", "", "A"));
+        testModles.add(new TestModel("A", "90", "", "", "A"));
+        testModles.add(new TestModel("A", "10", "", "", "A"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
 
-        testModles.add(new TestModel("L", "10", "", "", "B"));
-        testModles.add(new TestModel("M", "13", "", "", "B"));
-        testModles.add(new TestModel("N", "15", "", "", "B"));
-        testModles.add(new TestModel("O", "20", "", "", "B"));
-        testModles.add(new TestModel("P", "20", "", "", "B"));
-        testModles.add(new TestModel("Q", "21", "", "", "B"));
-        testModles.add(new TestModel("R", "21", "", "", "B"));
-        testModles.add(new TestModel("RR", "21", "", "", "B"));
-        testModles.add(new TestModel("RRR", "21", "", "", "B"));
-        testModles.add(new TestModel("RRRR", "21", "", "", "B"));
-        testModles.add(new TestModel("J", "90", "", "", "A"));
+        testModles.add(new TestModel("B", "10", "", "", "B"));
+        testModles.add(new TestModel("B", "13", "", "", "B"));
+        testModles.add(new TestModel("B", "15", "", "", "B"));
+        testModles.add(new TestModel("B", "20", "", "", "B"));
+        testModles.add(new TestModel("B", "20", "", "", "B"));
+        testModles.add(new TestModel("B", "21", "", "", "B"));
+        testModles.add(new TestModel("B", "21", "", "", "B"));
+        testModles.add(new TestModel("B", "21", "", "", "B"));
+        testModles.add(new TestModel("B", "21", "", "", "B"));
+        testModles.add(new TestModel("B", "21", "", "", "B"));
+        testModles.add(new TestModel("A", "90", "", "", "A"));
 
-        testModles.add(new TestModel("S", "21", "", "", "C"));
-        testModles.add(new TestModel("T", "21", "", "", "C"));
-        testModles.add(new TestModel("U", "21", "", "", "C"));
-        testModles.add(new TestModel("V", "21", "", "", "C"));
-        testModles.add(new TestModel("W", "21", "", "", "C"));
-        testModles.add(new TestModel("X", "21", "", "", "C"));
-        testModles.add(new TestModel("Y", "21", "", "", "C"));
-        testModles.add(new TestModel("Z", "21", "", "", "C"));
-        testModles.add(new TestModel("ZZZ", "21", "", "", "C"));
-        testModles.add(new TestModel("ZZZZ", "21", "", "", "C"));
-        testModles.add(new TestModel("ZZZZZ", "21", "", "", "C"));
-        testModles.add(new TestModel("ZZZZZZ", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
+        testModles.add(new TestModel("C", "21", "", "", "C"));
 
         return testModles;
     }
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
     @Override
     public void oniOSHeaderListViewItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         TestModel testModel = (TestModel) adapterView.getAdapter().getItem(i);
-        Log.e("第" + i, testModel.getTag());
+        Log.e("第" + i, testModel.getAge());
     }
 
     @Override
@@ -118,6 +120,26 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
 
     @Override
     public void oniOSHeaderListViewHeaderClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onHeaderRightScroll(int position) {
+        Log.e("scroll","onHeaderRightScroll");
+    }
+
+    @Override
+    public void onItemRightScroll(int position) {
+        Log.e("scroll","onItemRightScroll");
+    }
+
+    @Override
+    public void onHeaderLeftScroll(int position) {
+
+    }
+
+    @Override
+    public void onItemLeftScroll(int position) {
 
     }
 }

@@ -2,11 +2,8 @@ package tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview;
 
 
 import android.support.annotation.IntDef;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 
 import java.lang.annotation.Retention;
@@ -46,23 +43,6 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     int groupType = GROUP_TYPE_DEFAULT;
 
 
-    //是否 畫面要啟用ScrollLayout
-    public static final int VIEW_TYPE_DEFAULT = 3333;
-    public static final int VIEW_TYPE_SCROLL = 4444;
-
-    @IntDef({VIEW_TYPE_SCROLL, VIEW_TYPE_DEFAULT})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface viewType {
-
-    }
-
-    //預設為不使用ScrollLayout
-    private
-    @groupType
-    int viewType = VIEW_TYPE_DEFAULT;
-
-    private OniOSHeaderListViewItemTouchListener oniOSHeaderListViewItemTouchListener;
-
     @Override
     public int getViewTypeCount() {
         return 2;
@@ -77,7 +57,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View view, ViewGroup viewGroup) {
+    public View getView(final int position, View view, ViewGroup viewGroup) {
         ArrayList data = getData();
         //若要重組
         if (getGroupType() == GROUP_TYPE_REGROUP) {
@@ -91,17 +71,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
             }
             return getCustomHeaderView(position, view, viewGroup);
         }
-
-        View itemView = getCustomItemView(position, view, viewGroup);
-        if (getViewType() == VIEW_TYPE_SCROLL) {//如果啟動 Scroll Type,項目就裝上onTouchListener
-            itemView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View view, MotionEvent motionEvent) {
-                    return oniOSHeaderListViewItemTouchListener.oniOSHeaderListViewItemTouch(view,motionEvent);
-                }
-            });
-        }
-        return itemView;
+        return getCustomItemView(position, view, viewGroup);
     }
 
     //----------------------
@@ -201,7 +171,6 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
         }
         return allTypes;
     }
-
     //----------------------
 
     /**
@@ -214,31 +183,5 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     public void setGroupType(@groupType int groupType) {
         this.groupType = groupType;
     }
-
-    //---------------------
-
-    /**
-     * 讓使用者決定 要不要 使用ScrollLayout ->VIEW_TYPE_DEFAULT
-     */
-    public
-    @viewType
-    int getViewType() {
-        return viewType;
-    }
-
-    public void setViewType(@viewType int viewType) {
-        this.viewType = viewType;
-    }
-    //----------------------
-    /**
-     * interface 將動作行為提出adapter 行為不要留在adapter..
-     * */
-    public void setOniOSHeaderListViewItemTouchListener(OniOSHeaderListViewItemTouchListener oniOSHeaderListViewItemTouchListener){
-        this.oniOSHeaderListViewItemTouchListener = oniOSHeaderListViewItemTouchListener;
-    }
-    public interface OniOSHeaderListViewItemTouchListener{
-        boolean oniOSHeaderListViewItemTouch(View view, MotionEvent motionEvent);
-    }
-
 
 }

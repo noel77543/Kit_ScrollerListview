@@ -10,6 +10,136 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87d34747-b448-4f9a-8cca-3186b1d793d1" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollHeader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllistview/ScrollListView.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrollLayout/ScrollLayout.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-24-18-01-04-641.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-06-39-402.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-14-21-313.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-15-11-192.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-31-05-900.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-32-04-677.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-32-52-991.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-33-39-089.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-34-22-740.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-42-42-112.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-44-59-684.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-46-21-497.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-47-08-438.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-48-29-240.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-49-14-582.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-50-00-701.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-50-40-391.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-53-13-307.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-09-59-31-119.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-05-59-995.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-06-54-342.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-15-15-474.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-16-23-510.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-20-09-380.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-23-46-250.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-25-44-596.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-27-52-677.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-28-32-150.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-29-56-543.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-30-29-315.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-31-06-829.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-32-35-433.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-33-37-633.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-34-45-656.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-35-25-635.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-36-22-656.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-37-25-615.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-40-25-089.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-43-13-838.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-44-42-286.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-46-58-941.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-47-54-825.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-51-11-876.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-54-19-502.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-56-25-421.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-10-59-34-531.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-00-45-215.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-02-51-668.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-03-57-995.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-05-00-289.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-06-46-931.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-08-20-710.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-09-02-235.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-10-50-171.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-52-17-616.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-56-02-920.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-57-06-065.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-11-58-05-393.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-01-35-860.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-03-15-208.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-04-20-084.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-09-33-926.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-10-15-750.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-10-45-808.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-12-32-807.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-26-03-307.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-26-58-941.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-12-28-41-638.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-32-43-883.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-36-13-065.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-36-43-455.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-37-30-420.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-41-51-203.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-42-26-152.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-46-21-757.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-47-45-826.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-52-41-962.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-53-33-092.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-13-57-48-603.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-01-16-397.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-01-45-922.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-02-45-341.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-08-41-995.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-10-40-480.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-12-53-217.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-49-46-355.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-51-10-922.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-14-51-49-049.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-01-46-526.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-02-46-766.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-05-39-664.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-06-26-822.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-09-19-142.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-10-04-598.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-14-33-317.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-15-05-249.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-16-41-945.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-21-24-922.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-21-56-781.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-22-52-082.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-24-41-565.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-25-55-725.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-31-31-463.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-40-52-145.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-44-39-262.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-53-47-905.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-55-50-250.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-56-45-689.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-15-59-53-309.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-16-00-56-674.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-16-10-30-841.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-16-27-40-367.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-16-29-08-433.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-16-30-54-088.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-16-54-25-888.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-00-48-667.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-01-17-906.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-04-08-119.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-07-05-730.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-12-18-354.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-14-40-076.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-16-48-712.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-19-41-885.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-21-09-316.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-22-32-636.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-30-29-092.rawproto" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/android-profile/profile-2017-10-25-17-44-18-631.rawproto" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
@@ -19,8 +149,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java" afterPath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrollLayout/ScrollLayout.java" afterPath="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrollLayout/ScrollLayout.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
     </list>
     <ignored path="Listview_Kit_iOS_Header.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,6 +168,13 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="Listview_Kit_iOS_Header" />
   </component>
@@ -48,9 +183,14 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="493">
+              <caret line="52" column="47" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding>
+                <element signature="e#5347#5348#0" expanded="true" />
+                <element signature="e#5400#5401#0" expanded="true" />
+                <element signature="e#5465#5466#0" expanded="true" />
+                <element signature="e#5516#5517#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -68,38 +208,84 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="iOSHeaderListView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="iOSHeaderListViewAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="4002">
+              <caret line="155" column="7" selection-start-line="155" selection-start-column="7" selection-end-line="155" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2619#2894#0" expanded="true" />
-                <element signature="e#2893#2894#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view_title.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_title.xml">
-          <provider selected="true" editor-type-id="android-designer2">
+      <file leaf-file-name="iOSHeaderListView.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_item.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_item.xml">
+          <provider editor-type-id="android-designer2">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScrollListView.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllistview/ScrollListView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="256">
+              <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#7915#7916#0" expanded="true" />
+                <element signature="e#7955#7956#0" expanded="true" />
+                <element signature="e#8181#8182#0" expanded="true" />
+                <element signature="e#8220#8221#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScrollHeader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollHeader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="260" column="34" selection-start-line="260" selection-start-column="34" selection-end-line="260" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#7341#7342#0" expanded="true" />
+                <element signature="e#7381#7382#0" expanded="true" />
+                <element signature="e#7444#7445#0" expanded="true" />
+                <element signature="e#7495#7496#0" expanded="true" />
+                <element signature="e#7536#7537#0" expanded="true" />
+                <element signature="e#7575#7576#0" expanded="true" />
+                <element signature="e#7636#7637#0" expanded="true" />
+                <element signature="e#7685#7686#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TestAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/TestAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="249">
+              <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -1968,17 +2154,26 @@
         <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/ScrollLayout.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_title.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrollLayout/ScrollLayout.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/TestAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/test/TestListView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllistview/TestListView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/view_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollAbsListViewLayout.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollLayout.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/TestAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/NewScrollLayout.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllistview/ScrollListView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollHeader.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/OnHeaderScrollListener.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="141" />
-    <option name="y" value="25" />
+    <option name="x" value="122" />
+    <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1337" />
   </component>
@@ -2007,7 +2202,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2098,28 +2294,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scrollLayout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Listview_Kit_iOS_Header" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="listview_kit_ios_header_style" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="iosheaderlistview" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -2136,19 +2310,18 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../old_ezgo/ezgo_android" />
     <property name="device.picker.selection" value="F9AZCY16J845" />
-    <property name="lastFolderRoot" value="$USER_HOME$/Desktop/ic_delete.png" />
+    <property name="lastFolderRoot" value="$USER_HOME$/Desktop/ic_up_arrow.png" />
     <property name="algorithm" value="Scalr" />
     <property name="method" value="Automatic" />
     <property name="sourceResolution" value="XHDPI" />
-    <property name="resolutions" value="HDPI&#10;XHDPI&#10;XXHDPI" />
+    <property name="resolutions" value="XXHDPI&#10;HDPI&#10;XHDPI" />
     <property name="format" value="PNG" />
   </component>
   <component name="RunManager" selected="Android App.app">
@@ -2477,16 +2650,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="141" y="25" width="2560" height="1337" extended-state="0" />
+    <frame x="122" y="23" width="2560" height="1337" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328654" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2741536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27745664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25681254" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2507,7 +2680,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32947975" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2526,11 +2699,135 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6525">
+          <caret line="246" column="90" selection-start-line="246" selection-start-column="90" selection-end-line="246" selection-end-column="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2030">
+          <caret line="81" column="30" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_item.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllistview/ScrollListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7134">
+          <caret line="263" column="5" selection-start-line="263" selection-start-column="5" selection-end-line="263" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7915#7916#0" expanded="true" />
+            <element signature="e#7955#7956#0" expanded="true" />
+            <element signature="e#8181#8182#0" expanded="true" />
+            <element signature="e#8220#8221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1334">
+          <caret line="56" column="27" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1711">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#5347#5348#0" expanded="true" />
+            <element signature="e#5400#5401#0" expanded="true" />
+            <element signature="e#5465#5466#0" expanded="true" />
+            <element signature="e#5516#5517#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="6" column="67" selection-start-line="6" selection-start-column="67" selection-end-line="6" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1566">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_title.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
-          <folding />
+          <folding>
+            <element signature="e#5347#5348#0" expanded="true" />
+            <element signature="e#5400#5401#0" expanded="true" />
+            <element signature="e#5465#5466#0" expanded="true" />
+            <element signature="e#5516#5517#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2549,17 +2846,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7685">
           <caret line="287" column="28" selection-start-line="287" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrollLayout/ScrollLayout.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4176">
           <caret line="158" column="0" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2569,8 +2866,6 @@
           <caret line="110" column="77" selection-start-line="110" selection-start-column="77" selection-end-line="110" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2619#2894#0" expanded="true" />
-            <element signature="e#2893#2894#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2598,7 +2893,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
           <caret line="50" column="50" selection-start-line="50" selection-start-column="50" selection-end-line="50" selection-end-column="50" />
-          <folding />
+          <folding>
+            <element signature="e#5347#5348#0" expanded="true" />
+            <element signature="e#5400#5401#0" expanded="true" />
+            <element signature="e#5465#5466#0" expanded="true" />
+            <element signature="e#5516#5517#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2606,7 +2906,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1711">
           <caret line="76" column="33" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2621,13 +2923,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrollLayout/ScrollLayout.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2637,8 +2937,6 @@
           <caret line="72" column="9" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2619#2894#0" expanded="true" />
-            <element signature="e#2893#2894#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2648,13 +2946,6 @@
         <state relative-caret-position="1392">
           <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/View.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="1718" column="24" selection-start-line="1718" selection-start-column="24" selection-end-line="1718" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -2669,36 +2960,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-core-ui/26.0.0-alpha1/support-core-ui-26.0.0-alpha1-sources.jar!/android/support/v4/widget/ViewDragHelper.java">
+    <entry file="file://$PROJECT_DIR$/../../圖1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/AdapterView.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="1490" column="59" selection-start-line="1490" selection-start-column="59" selection-end-line="1490" selection-end-column="59" />
+        <state relative-caret-position="-2217">
+          <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/TestAdapter.java">
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/Adapter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="174">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrollLayout/ScrollLayout.java">
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/AbsListView.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="281">
+          <caret line="395" column="15" selection-start-line="395" selection-start-column="15" selection-end-line="395" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -2709,6 +2993,78 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/Scroller.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="43" column="21" selection-start-line="43" selection-start-column="21" selection-end-line="43" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/widget/AbsoluteLayout.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="78" column="68" selection-start-line="78" selection-start-column="68" selection-end-line="78" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollAbsListViewLayout.java" />
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-core-ui/26.0.0-alpha1/support-core-ui-26.0.0-alpha1-sources.jar!/android/support/v4/widget/ViewDragHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollListLayout.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/ViewGroup.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="281" column="19" selection-start-line="281" selection-start-column="19" selection-end-line="281" selection-end-column="19" />
+          <folding>
+            <element signature="e#8781#8782#0" expanded="true" />
+            <element signature="e#8832#8833#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/view/View.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="1316" column="19" selection-start-line="1316" selection-start-column="19" selection-end-line="1316" selection-end-column="19" />
+          <folding>
+            <element signature="e#41577#41578#0" expanded="true" />
+            <element signature="e#41628#41629#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/TestAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="63" column="61" selection-start-line="63" selection-start-column="61" selection-end-line="63" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_item.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -2726,26 +3082,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="4002">
+          <caret line="155" column="7" selection-start-line="155" selection-start-column="7" selection-end-line="155" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2619#2894#0" expanded="true" />
-            <element signature="e#2893#2894#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../圖1.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllayout/ScrollHeader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="260" column="34" selection-start-line="260" selection-start-column="34" selection-end-line="260" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7341#7342#0" expanded="true" />
+            <element signature="e#7381#7382#0" expanded="true" />
+            <element signature="e#7444#7445#0" expanded="true" />
+            <element signature="e#7495#7496#0" expanded="true" />
+            <element signature="e#7536#7537#0" expanded="true" />
+            <element signature="e#7575#7576#0" expanded="true" />
+            <element signature="e#7636#7637#0" expanded="true" />
+            <element signature="e#7685#7686#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/scrolllistview/ScrollListView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7915#7916#0" expanded="true" />
+            <element signature="e#7955#7956#0" expanded="true" />
+            <element signature="e#8181#8182#0" expanded="true" />
+            <element signature="e#8220#8221#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="52" column="47" selection-start-line="52" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding>
+            <element signature="e#5347#5348#0" expanded="true" />
+            <element signature="e#5400#5401#0" expanded="true" />
+            <element signature="e#5465#5466#0" expanded="true" />
+            <element signature="e#5516#5517#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/OnHeaderScrollListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/tw/com/sung/noel/listview_kit_ios_header_style/iosheaderlistview/iOSHeaderListView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="153" column="22" selection-start-line="153" selection-start-column="22" selection-end-line="153" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="295">
+          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
