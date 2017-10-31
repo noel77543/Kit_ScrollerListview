@@ -30,13 +30,11 @@ import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.Scro
  * Created by noel on 2017/10/12.
  */
 
-public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, OnHorizontalScrollListener {
+public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, OnHorizontalScrollListener, View.OnClickListener, View.OnLongClickListener {
 
     private OnScrollItemClickListener onScrollItemClickListener;
     private OnScrollItemLongClickListener onScrollItemLongClickListener;
-
-
-    private OniOSHeaderListViewScrollListener oniOSHeaderListViewScrollListener;
+    private OniOSHeaderListViewVerticalScrollListener oniOSHeaderListViewVerticalScrollListener;
     private OniOSHeaderListViewRightScrollListener oniOSHeaderListViewRightScrollListener;
     private OniOSHeaderListViewLeftScrollListener oniOSHeaderListViewLeftScrollListener;
 
@@ -116,11 +114,12 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     //----------------------
 
     /**
-     * item click 對外的接口
+     * item 與內部HEADER 與置頂HEADER 對外的click接口
      */
     public void setOniOSHeaderListViewItemClickListener(OnScrollItemClickListener onScrollItemClickListener) {
         this.onScrollItemClickListener = onScrollItemClickListener;
         listView.setOnItemClickListener(this);
+        scrollHeaderLayout.setOnClickListener(this);
     }
 
     //listview onItemclick / headerclick
@@ -146,11 +145,12 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     //----------------------
 
     /**
-     * item long click 對外的接口
+     * item  與內部HEADER 與置頂HEADER 對外的long click接口
      */
     public void setOniOSHeaderListViewItemLongClickListener(OnScrollItemLongClickListener onScrollItemLongClickListener) {
         this.onScrollItemLongClickListener = onScrollItemLongClickListener;
         listView.setOnItemLongClickListener(this);
+        scrollHeaderLayout.setOnLongClickListener(this);
     }
 
     //onItemLongClick
@@ -177,16 +177,16 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     /**
      * scroll 接口
      */
-    public void setOniOSHeaderListViewScrollListener(OniOSHeaderListViewScrollListener oniOSHeaderListViewScrollListener) {
-        this.oniOSHeaderListViewScrollListener = oniOSHeaderListViewScrollListener;
+    public void setOniOSHeaderListViewVerticalScrollListener(OniOSHeaderListViewVerticalScrollListener oniOSHeaderListViewVerticalScrollListener) {
+        this.oniOSHeaderListViewVerticalScrollListener = oniOSHeaderListViewVerticalScrollListener;
         oniOSHeaderListViewScroll();
     }
 
     //interface
-    public interface OniOSHeaderListViewScrollListener {
-        void oniOSHeaderListViewScrollStateChanged(AbsListView absListView, int scrollState);
+    public interface OniOSHeaderListViewVerticalScrollListener {
+        void oniOSHeaderListViewVerticalScrollStateChanged(AbsListView absListView, int scrollState);
 
-        void oniOSHeaderListViewScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount);
+        void oniOSHeaderListViewVerticalScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount);
     }
 
     //對iosheaderlistview 中的listview 套上OnScroll監聽
@@ -198,9 +198,9 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     @Override
     public void onScrollStateChanged(AbsListView absListView, int scrollState) {
 
-        if (oniOSHeaderListViewScrollListener != null) {
+        if (oniOSHeaderListViewVerticalScrollListener != null) {
             //被套件使用者覆寫的行為
-            oniOSHeaderListViewScrollListener.oniOSHeaderListViewScrollStateChanged(absListView, scrollState);
+            oniOSHeaderListViewVerticalScrollListener.oniOSHeaderListViewVerticalScrollStateChanged(absListView, scrollState);
         }
     }
 
@@ -223,9 +223,9 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
             updateHeaderView(firstVisibleItem, absListView);
         }
 
-        if (oniOSHeaderListViewScrollListener != null) {
+        if (oniOSHeaderListViewVerticalScrollListener != null) {
             //被套件使用者覆寫的行為
-            oniOSHeaderListViewScrollListener.oniOSHeaderListViewScroll(absListView, firstVisibleItem, visibleItemCount, totalItemCount);
+            oniOSHeaderListViewVerticalScrollListener.oniOSHeaderListViewVerticalScroll(absListView, firstVisibleItem, visibleItemCount, totalItemCount);
         }
     }
 
@@ -246,20 +246,6 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
         headerView.setLayoutParams(getViewLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         scrollHeaderLayout.addView(headerView);
 
-        scrollHeaderLayout.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onScrollItemClickListener.oniOSHeaderListViewHeaderClick(absListView,headerView,-1,-2);
-            }
-        });
-        scrollHeaderLayout.setOnLongClickListener(new OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                onScrollItemLongClickListener.oniOSHeaderListViewHeaderLongClick(absListView,headerView,-1,-2);
-
-                return true;
-            }
-        });
     }
 
     //----------------------
@@ -284,8 +270,8 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
                     if (viewType == TOP_HEADER) {
                         //這裡是為了確保置頂header的行為所對應的類別符合邏輯
                         int topHeaderPosition = listView.getFirstVisiblePosition();
-                        if(topHeaderPosition>0){
-                            topHeaderPosition = topHeaderPosition -1;
+                        if (topHeaderPosition > 0) {
+                            topHeaderPosition = topHeaderPosition - 1;
                         }
                         oniOSHeaderListViewLeftScrollListener.onHeaderLeftScroll(topHeaderPosition);
 
@@ -303,8 +289,8 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
                     if (viewType == TOP_HEADER) {
                         //這裡是為了確保置頂header的行為所對應的類別符合邏輯
                         int topHeaderPosition = listView.getFirstVisiblePosition();
-                        if(topHeaderPosition>0){
-                            topHeaderPosition = topHeaderPosition -1;
+                        if (topHeaderPosition > 0) {
+                            topHeaderPosition = topHeaderPosition - 1;
                         }
                         oniOSHeaderListViewRightScrollListener.onHeaderRightScroll(topHeaderPosition);
                     } else if (viewType == HEADER) {
@@ -316,7 +302,33 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
                 break;
         }
     }
+    //----------------------
 
+    /**
+     * 置頂header click事件
+     */
+    @Override
+    public void onClick(View view) {
+        int topHeaderPosition = listView.getFirstVisiblePosition();
+        if (topHeaderPosition > 1) {
+            topHeaderPosition = topHeaderPosition - 1;
+        }
+        onScrollItemClickListener.oniOSHeaderListViewHeaderClick(listView, headerView, topHeaderPosition,topHeaderPosition );
+    }
+    //----------------------
+
+    /**
+     * 置頂header longclick事件
+     */
+    @Override
+    public boolean onLongClick(View view) {
+        int topHeaderPosition = listView.getFirstVisiblePosition();
+        if (topHeaderPosition > 1) {
+            topHeaderPosition = topHeaderPosition - 1;
+        }
+        onScrollItemLongClickListener.oniOSHeaderListViewHeaderLongClick(listView, headerView, topHeaderPosition, topHeaderPosition);
+        return true;
+    }
 
     //----------------------
 

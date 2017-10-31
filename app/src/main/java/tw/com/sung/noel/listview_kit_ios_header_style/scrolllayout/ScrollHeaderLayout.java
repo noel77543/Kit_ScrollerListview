@@ -9,6 +9,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 
@@ -24,7 +25,7 @@ import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.Scro
  * Created by noel on 2017/10/27.
  */
 
-public class ScrollHeaderLayout extends LinearLayout implements View.OnTouchListener {
+public class ScrollHeaderLayout extends FrameLayout implements View.OnTouchListener {
 
     private OnHorizontalScrollListener onHorizontalScrollListener;
 
@@ -121,21 +122,19 @@ public class ScrollHeaderLayout extends LinearLayout implements View.OnTouchList
     }
 
     //----------------------------
-    /**
-     * 處理滾動邏輯
-     * */
+
     @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
+    public boolean onTouchEvent(MotionEvent event) {
 
         if (isScrollable) {
             requestDisallowInterceptTouchEvent(true);
-            final int action = ev.getAction();
-            int x = (int) ev.getX();
+            int x = (int) event.getX();
+            int action = event.getAction();
             switch (action) {
                 case MotionEvent.ACTION_MOVE:
-                    MotionEvent cancelEvent = MotionEvent.obtain(ev);
+                    MotionEvent cancelEvent = MotionEvent.obtain(event);
                     cancelEvent.setAction(MotionEvent.ACTION_CANCEL |
-                            (ev.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
+                            (event.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
                     onTouchEvent(cancelEvent);
 
                     int deltaX = downX - x;
@@ -156,8 +155,7 @@ public class ScrollHeaderLayout extends LinearLayout implements View.OnTouchList
                     break;
             }
         }
-
-        return super.dispatchTouchEvent(ev);
+        return super.onTouchEvent(event);
     }
 
     //----------------------------
@@ -165,24 +163,18 @@ public class ScrollHeaderLayout extends LinearLayout implements View.OnTouchList
     public boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                Log.e("onTouch","ACTION_DOWN");
                 addVelocityTracker(motionEvent);
                 //手指接觸螢幕時的X座標
                 downX = (int) motionEvent.getX();
                 //手指接觸螢幕時的Y座標
                 downY = (int) motionEvent.getY();
                 break;
-            case MotionEvent.ACTION_MOVE:
-                Log.e("onTouch","ACTION_MOVE");
 
+            case MotionEvent.ACTION_MOVE:
                 //向右移動 與 向左移動
                 if ((Math.abs(motionEvent.getX() - downX) > scrollMinDistance && Math.abs(motionEvent.getY() - downY) < scrollMinDistance)) {
                     isScrollable = true;
                 }
-                break;
-            case MotionEvent.ACTION_UP:
-                Log.e("onTouch","ACTION_UP");
-
                 break;
         }
 

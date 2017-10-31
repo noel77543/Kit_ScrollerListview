@@ -18,13 +18,12 @@ import tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeade
 import tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter;
 
 
-public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewScrollListener, iOSHeaderListView.OniOSHeaderListViewRightScrollListener, iOSHeaderListView.OniOSHeaderListViewLeftScrollListener, OnScrollItemClickListener, OnScrollItemLongClickListener {
+public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewVerticalScrollListener, iOSHeaderListView.OniOSHeaderListViewRightScrollListener, iOSHeaderListView.OniOSHeaderListViewLeftScrollListener, OnScrollItemClickListener, OnScrollItemLongClickListener {
 
     @BindView(R.id.listview)
     iOSHeaderListView listview;
 
     private TestAdapter adapter;
-    private ArrayList<TestModel> testModles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +41,14 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
         adapter.setGroupType(iOSHeaderListViewAdapter.GROUP_TYPE_REGROUP);
 
         listview.setOniOSHeaderListViewItemClickListener(this);
-
-        listview.setOniOSHeaderListViewScrollListener(this);
-
         listview.setOniOSHeaderListViewItemLongClickListener(this);
-
+        listview.setOniOSHeaderListViewVerticalScrollListener(this);
         listview.setOniOSHeaderListViewRightScrollListener(this);
         listview.setOniOSHeaderListViewLeftScrollListener(this);
-
     }
 
     private ArrayList<TestModel> getData() {
-        testModles = new ArrayList<>();
+        ArrayList<TestModel> testModles = new ArrayList<>();
         testModles.add(new TestModel("A", "99", "", "", "A"));
         testModles.add(new TestModel("A", "99", "", "", "A"));
         testModles.add(new TestModel("A", "99", "", "", "A"));
@@ -116,12 +111,12 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
     }
 
     @Override
-    public void oniOSHeaderListViewScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+    public void oniOSHeaderListViewVerticalScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 //        Log.e("scroll", "oniOSHeaderListViewScroll");
     }
 
     @Override
-    public void oniOSHeaderListViewScrollStateChanged(AbsListView absListView, int i) {
+    public void oniOSHeaderListViewVerticalScrollStateChanged(AbsListView absListView, int i) {
 //        Log.e("scroll", "oniOSHeaderListViewScrollStateChanged");
     }
 
