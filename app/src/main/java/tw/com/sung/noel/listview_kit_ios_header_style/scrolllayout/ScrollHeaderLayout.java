@@ -3,6 +3,7 @@ package tw.com.sung.noel.listview_kit_ios_header_style.scrolllayout;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -11,8 +12,10 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 
+import tw.com.sung.noel.listview_kit_ios_header_style.implement.OnHorizontalScrollListener;
 import tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.ScrollListView;
 
+import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListView.TOP_HEADER;
 import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.ScrollListView.LEFT;
 import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.ScrollListView.NONE;
 import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.ScrollListView.RIGHT;
@@ -21,33 +24,30 @@ import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.Scro
  * Created by noel on 2017/10/27.
  */
 
-public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
+public class ScrollHeaderLayout extends LinearLayout implements View.OnTouchListener {
 
+    private OnHorizontalScrollListener onHorizontalScrollListener;
+
+    //滑動的主要開關，預設為不執行
+    private boolean isScrollable = false;
     //右滾動開關
     private boolean isRightScrollable = false;
     //左滾動開關
     private boolean isLeftScrollable = false;
 
-
     //手指按下Y的坐標
     private int downY;
     //手指按下X的坐標
     private int downX;
-    //屏幕寬度
+    //螢幕寬度
     private int screenWidth;
-
     //滑動類
     private Scroller scroller;
     //速度追蹤對象
     private VelocityTracker velocityTracker;
-    //滑動的主要開關，預設為不執行
-    private boolean isSlide = false;
     //滑動的最小距離
     private int scrollMinDistance;
-    //右滾動的接口
-    private OnHeaderRightScrollListener onHeaderRightScrollListener;
-    //左滾動的接口
-    private OnHeaderLeftScrollListener onHeaderLeftScrollListener;
+
     /**
      * 用來得知item滑出屏幕的方向,向左或者向右或不動
      */
@@ -56,7 +56,7 @@ public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
     int scrollDirection = NONE;
 
 
-    public ScrollHeader(Context context) {
+    public ScrollHeaderLayout(Context context) {
         super(context);
         screenWidth = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getWidth();
         scroller = new Scroller(context);
@@ -64,11 +64,11 @@ public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
         setOnTouchListener(this);
     }
 
-    public ScrollHeader(Context context, @Nullable AttributeSet attrs) {
+    public ScrollHeaderLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ScrollHeader(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public ScrollHeaderLayout(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -85,7 +85,7 @@ public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
         //從(startＸ,startY)到(dX,dY),時間duration
         scroller.startScroll(getScrollX(), 0, -delta, 0,
                 Math.abs(delta));
-        postInvalidate(); // 刷新itemView
+        postInvalidate(); // 刷新
 
     }
 
@@ -99,45 +99,43 @@ public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
         final int delta = (screenWidth - getScrollX());
         scroller.startScroll(getScrollX(), 0, delta, 0,
                 Math.abs(delta));
-        postInvalidate(); // 刷新itemView
+        postInvalidate(); // 刷新
     }
 
 
     //----------------------------
 
     /**
-     * 根據手指滾動itemView的距離來判斷是滾動到開始位置還是向左或者向右滾動
+     * 根據手指滾動itemView的水平距離來判斷是滾動到開始位置還是向左或者向右滾動
      */
-    private void scrollByDistanceX() {
-        // 如果向左滾動的距離大於屏幕的8分之1，就進行滑動該方向到底的動畫
-        if (getScrollX() >= screenWidth / 8) {
+    private void scrollByHorizontalDistance() {
+        // 如果向左滾動的距離大於屏幕的3分之1，就進行滑動該方向到底
+        if (getScrollX() >= screenWidth / 3) {
             scrollLeft();
-        } else if (getScrollX() <= -screenWidth / 8) {
+        } else if (getScrollX() <= -screenWidth / 3) {
             scrollRight();
         } else {
             // 回到原始位置
             scrollTo(0, 0);
         }
     }
+
     //----------------------------
-
     /**
-     * 處理拖曳
-     */
-
+     * 處理滾動邏輯
+     * */
     @Override
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (isSlide) {
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+
+        if (isScrollable) {
             requestDisallowInterceptTouchEvent(true);
-            addVelocityTracker(motionEvent);
-            final int action = motionEvent.getAction();
-            int x = (int) motionEvent.getX();
+            final int action = ev.getAction();
+            int x = (int) ev.getX();
             switch (action) {
                 case MotionEvent.ACTION_MOVE:
-
-                    MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);
+                    MotionEvent cancelEvent = MotionEvent.obtain(ev);
                     cancelEvent.setAction(MotionEvent.ACTION_CANCEL |
-                            (motionEvent.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
+                            (ev.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
                     onTouchEvent(cancelEvent);
 
                     int deltaX = downX - x;
@@ -149,19 +147,17 @@ public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
                     } else if (isLeftScrollable() && deltaX > 0) {
                         scrollBy(deltaX, 0);
                     }
-                    return false; //拖動的時候ListView不滾動
+                    break; //拖動的時候ListView不滾動
                 case MotionEvent.ACTION_UP:
-
-                    scrollByDistanceX();
+                    scrollByHorizontalDistance();
                     closeVelocityTracker();
                     // 手指離開的時候就不響應左右滾動
-                    isSlide = false;
+                    isScrollable = false;
                     break;
             }
         }
 
-        //否則直接交給ListView來處理onTouchEvent事件
-        return super.onTouchEvent(motionEvent);
+        return super.dispatchTouchEvent(ev);
     }
 
     //----------------------------
@@ -169,35 +165,28 @@ public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN:
+                Log.e("onTouch","ACTION_DOWN");
                 addVelocityTracker(motionEvent);
-                // 假如scroller滾動還沒有結束，直接return
-                if (!scroller.isFinished()) {
-                    return true;
-                }
                 //手指接觸螢幕時的X座標
                 downX = (int) motionEvent.getX();
                 //手指接觸螢幕時的Y座標
                 downY = (int) motionEvent.getY();
                 break;
-
             case MotionEvent.ACTION_MOVE:
+                Log.e("onTouch","ACTION_MOVE");
 
                 //向右移動 與 向左移動
                 if ((Math.abs(motionEvent.getX() - downX) > scrollMinDistance && Math.abs(motionEvent.getY() - downY) < scrollMinDistance)) {
-                    isSlide = true;
-                    //return 給onTouchEvent 進行對應行為
-                    return super.onTouchEvent(motionEvent);
+                    isScrollable = true;
                 }
                 break;
             case MotionEvent.ACTION_UP:
+                Log.e("onTouch","ACTION_UP");
 
-                closeVelocityTracker();
-                //return 給onTouchEvent 進行對應行為
-                return super.onTouchEvent(motionEvent);
+                break;
         }
 
-        //否則直接交給ListView來處理onTouchEvent事件
-        return true;
+        return false;
     }
 
     //----------------------------
@@ -210,8 +199,10 @@ public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
             postInvalidate();
 
             // 滾動動畫結束的時候 移除該項目（slidePosition）
-            if (scroller.isFinished()) {
+            if (scroller.isFinished() && onHorizontalScrollListener != null) {
                 scrollTo(0, 0);
+                //置頂header 因不在listivew中
+                onHorizontalScrollListener.onHorozontalScroll(scrollDirection, TOP_HEADER);
             }
         }
     }
@@ -257,22 +248,10 @@ public class ScrollHeader extends LinearLayout implements View.OnTouchListener {
         isLeftScrollable = leftScrollable;
     }
 
-
-    public void setOnHeaderRightScrollListener(OnHeaderRightScrollListener onHeaderRightScrollListener) {
-        this.onHeaderRightScrollListener = onHeaderRightScrollListener;
-
-    }
-
-    public interface OnHeaderRightScrollListener {
-        void onHeaderRightScroll(int scrollDirection);
-    }
-
-    public void setOnHeaderLeftScrollListener(OnHeaderLeftScrollListener onHeaderLeftScrollListener) {
-        this.onHeaderLeftScrollListener = onHeaderLeftScrollListener;
-
-    }
-
-    public interface OnHeaderLeftScrollListener {
-        void onHeaderScroll(int scrollDirection);
+    /**
+     * 滾動監聽
+     */
+    public void setOnHorizontalScrollListener(OnHorizontalScrollListener onHorizontalScrollListener) {
+        this.onHorizontalScrollListener = onHorizontalScrollListener;
     }
 }

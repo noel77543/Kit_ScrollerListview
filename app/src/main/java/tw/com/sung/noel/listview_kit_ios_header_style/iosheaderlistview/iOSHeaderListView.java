@@ -1,6 +1,7 @@
 package tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview;
 
 import android.content.Context;
+import android.support.annotation.IntDef;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 
@@ -12,11 +13,15 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 
 
-import tw.com.sung.noel.listview_kit_ios_header_style.scrolllayout.ScrollHeader;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
+import tw.com.sung.noel.listview_kit_ios_header_style.implement.OnHorizontalScrollListener;
+import tw.com.sung.noel.listview_kit_ios_header_style.implement.OnScrollItemClickListener;
+import tw.com.sung.noel.listview_kit_ios_header_style.implement.OnScrollItemLongClickListener;
+import tw.com.sung.noel.listview_kit_ios_header_style.scrolllayout.ScrollHeaderLayout;
 import tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.ScrollListView;
 
-import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter.HEADER;
-import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter.ITEM;
 import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.ScrollListView.LEFT;
 import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.ScrollListView.RIGHT;
 
@@ -25,24 +30,35 @@ import static tw.com.sung.noel.listview_kit_ios_header_style.scrolllistview.Scro
  * Created by noel on 2017/10/12.
  */
 
-public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, ScrollListView.OnItemScrollListener {
+public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScrollListener, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener, OnHorizontalScrollListener {
 
-    private OniOSHeaderListViewHeaderClickListener oniOSHeaderListViewHeaderClickListener;
-    private OniOSHeaderListViewItemClickListener oniOSHeaderListViewItemClickListener;
+    private OnScrollItemClickListener onScrollItemClickListener;
+    private OnScrollItemLongClickListener onScrollItemLongClickListener;
+
+
     private OniOSHeaderListViewScrollListener oniOSHeaderListViewScrollListener;
-    private OniOSHeaderListViewItemLongClickListener oniOSHeaderListViewItemLongClickListener;
-
     private OniOSHeaderListViewRightScrollListener oniOSHeaderListViewRightScrollListener;
     private OniOSHeaderListViewLeftScrollListener oniOSHeaderListViewLeftScrollListener;
-
-
 
 
     private iOSHeaderListViewAdapter adapter;
     private ScrollListView listView;
     private Context context;
     private View headerView;
-    private ScrollHeader scrollHeader;
+    private ScrollHeaderLayout scrollHeaderLayout;
+
+
+    //置頂header 與 header 與 item
+    public static final int TOP_HEADER = -1;
+    public static final int HEADER = 0;
+    public static final int ITEM = 1;
+
+
+    @IntDef({TOP_HEADER, HEADER, ITEM})
+    @Retention(RetentionPolicy.SOURCE)
+    public @interface viewType {
+
+    }
 
 
     public iOSHeaderListView(Context context) {
@@ -71,7 +87,7 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     private void init() {
         setOrientation(VERTICAL);
         listView = new ScrollListView(context);
-        scrollHeader = new ScrollHeader(context);
+        scrollHeaderLayout = new ScrollHeaderLayout(context);
 
         initListView();
         addView(listView);
@@ -94,59 +110,36 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     public void setiOSHeaderListViewAdapter(iOSHeaderListViewAdapter adapter) {
         this.adapter = adapter;
         listView.setAdapter(adapter);
-        listView.setOnItemScrollListener(this);
+        listView.setOnHorizontalScrollListener(this);
+        scrollHeaderLayout.setOnHorizontalScrollListener(this);
     }
     //----------------------
 
     /**
      * item click 對外的接口
      */
-    public void setOniOSHeaderListViewItemClickListener(OniOSHeaderListViewItemClickListener oniOSHeaderListViewItemClickListener) {
-        this.oniOSHeaderListViewItemClickListener = oniOSHeaderListViewItemClickListener;
-        oniOSListViewItemClick();
-    }
-
-    //interface
-    public interface OniOSHeaderListViewItemClickListener {
-        void oniOSHeaderListViewItemClick(AdapterView<?> adapterView, View view, int i, long l);
-    }
-
-    /**
-     * header click 對外的接口
-     */
-    public void setOniOSHeaderListViewHeaderClickListener(OniOSHeaderListViewHeaderClickListener oniOSHeaderListViewHeaderClickListener) {
-        this.oniOSHeaderListViewHeaderClickListener = oniOSHeaderListViewHeaderClickListener;
-        oniOSListViewItemClick();
-    }
-
-    //interface
-    public interface OniOSHeaderListViewHeaderClickListener {
-        void oniOSHeaderListViewHeaderClick(AdapterView<?> adapterView, View view, int i, long l);
-    }
-
-    //對iosheaderlistview 中的listview 套上onitemclick監聽
-    private void oniOSListViewItemClick() {
+    public void setOniOSHeaderListViewItemClickListener(OnScrollItemClickListener onScrollItemClickListener) {
+        this.onScrollItemClickListener = onScrollItemClickListener;
         listView.setOnItemClickListener(this);
     }
 
-    //onItemclick
+    //listview onItemclick / headerclick
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         iOSHeaderListViewAdapter adapter = (iOSHeaderListViewAdapter) adapterView.getAdapter();
-        int viewType = adapter.getItemViewType(i);
-        switch (viewType){
-            case HEADER:
-                if (oniOSHeaderListViewHeaderClickListener != null) {
+        @viewType int viewType = adapter.getItemViewType(i);
+
+        if (onScrollItemClickListener != null) {
+            switch (viewType) {
+                case HEADER:
                     //被套件使用者覆寫的行為
-                    oniOSHeaderListViewHeaderClickListener.oniOSHeaderListViewHeaderClick(adapterView, view, i, l);
-                }
-                break;
-            case ITEM:
-                if (oniOSHeaderListViewItemClickListener != null) {
+                    onScrollItemClickListener.oniOSHeaderListViewHeaderClick(adapterView, view, i, l);
+                    break;
+                case ITEM:
                     //被套件使用者覆寫的行為
-                    oniOSHeaderListViewItemClickListener.oniOSHeaderListViewItemClick(adapterView, view, i, l);
-                }
-                break;
+                    onScrollItemClickListener.oniOSHeaderListViewItemClick(adapterView, view, i, l);
+                    break;
+            }
         }
     }
 
@@ -155,18 +148,8 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     /**
      * item long click 對外的接口
      */
-    public void setOniOSHeaderListViewItemLongClickListener(OniOSHeaderListViewItemLongClickListener oniOSHeaderListViewItemLongClickListener) {
-        this.oniOSHeaderListViewItemLongClickListener = oniOSHeaderListViewItemLongClickListener;
-        oniOSListViewItemLongClick();
-    }
-
-    //interface
-    public interface OniOSHeaderListViewItemLongClickListener {
-        void oniOSHeaderListViewItemLongClick(AdapterView<?> adapterView, View view, int i, long l);
-    }
-
-    //對iosheaderlistview 中的listview 套上onitemLongclick監聽
-    private void oniOSListViewItemLongClick() {
+    public void setOniOSHeaderListViewItemLongClickListener(OnScrollItemLongClickListener onScrollItemLongClickListener) {
+        this.onScrollItemLongClickListener = onScrollItemLongClickListener;
         listView.setOnItemLongClickListener(this);
     }
 
@@ -174,14 +157,19 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     @Override
     public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
         iOSHeaderListViewAdapter adapter = (iOSHeaderListViewAdapter) adapterView.getAdapter();
-        if (adapter.getItemViewType(i) != HEADER) {
-            if (oniOSHeaderListViewItemLongClickListener != null) {
-                //被套件使用者覆寫的行為
-                oniOSHeaderListViewItemLongClickListener.oniOSHeaderListViewItemLongClick(adapterView, view, i, l);
+        if (onScrollItemLongClickListener != null) {
+            switch (adapter.getItemViewType(i)) {
+                case HEADER:
+                    //被套件使用者覆寫的行為
+                    onScrollItemLongClickListener.oniOSHeaderListViewHeaderLongClick(adapterView, view, i, l);
+                    break;
+                case ITEM:
+                    //被套件使用者覆寫的行為
+                    onScrollItemLongClickListener.oniOSHeaderListViewItemLongClick(adapterView, view, i, l);
+                    break;
             }
-            return true;
         }
-        return false;
+        return true;
     }
 
     //----------------------
@@ -225,13 +213,13 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
             return;
 
         //目前最上面項目的種類
-        @iOSHeaderListViewAdapter.dataType int nowItemType = adapter.getItemViewType(firstVisibleItem);
+        @viewType int nowItemType = adapter.getItemViewType(firstVisibleItem);
         //取得前一個項目的種類
-        @iOSHeaderListViewAdapter.dataType int previousItemType = adapter.getItemViewType(firstVisibleItem - 1);
+        @viewType int previousItemType = adapter.getItemViewType(firstVisibleItem - 1);
 
 
         //第0 或者 前一項type等於目前type（用於由上往下滾動） 或者 前一項type = HEADER（用於由下往上滾動）
-        if (firstVisibleItem == 0 || nowItemType == previousItemType || previousItemType == iOSHeaderListViewAdapter.HEADER) {
+        if (firstVisibleItem == 0 || nowItemType == previousItemType || previousItemType == HEADER) {
             updateHeaderView(firstVisibleItem, absListView);
         }
 
@@ -246,43 +234,80 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
     /**
      * 更新置頂headerview
      */
-    private void updateHeaderView(int firstVisibleItem, AbsListView absListView) {
+    private void updateHeaderView(int firstVisibleItem, final AbsListView absListView) {
         if (headerView != null) {
-            scrollHeader.removeView(headerView);
+            scrollHeaderLayout.removeView(headerView);
         }
-        if (scrollHeader != null) {
-            removeView(scrollHeader);
+        if (scrollHeaderLayout != null) {
+            removeView(scrollHeaderLayout);
         }
-
+        addView(scrollHeaderLayout, 0);
         headerView = adapter.getCustomHeaderView(firstVisibleItem, headerView, absListView);
         headerView.setLayoutParams(getViewLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        addView(scrollHeader, 0);
-        scrollHeader.addView(headerView);
+        scrollHeaderLayout.addView(headerView);
+
+        scrollHeaderLayout.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onScrollItemClickListener.oniOSHeaderListViewHeaderClick(absListView,headerView,-1,-2);
+            }
+        });
+        scrollHeaderLayout.setOnLongClickListener(new OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                onScrollItemLongClickListener.oniOSHeaderListViewHeaderLongClick(absListView,headerView,-1,-2);
+
+                return true;
+            }
+        });
     }
 
     //----------------------
 
     /**
-     * 當滑動清單中的Item或header時
+     * 當左右滑動listview中的Item或header時
      */
     @Override
-    public void onItemScroll(@ScrollListView.scrollDirection int direction, int position) {
+    public void onHorozontalScroll(@ScrollListView.scrollDirection int direction, int position) {
 
-        int viewType = adapter.getItemViewType(position);
+        int viewType = TOP_HEADER;//此為置頂header
+
+        if (position > -1) {
+            viewType = adapter.getItemViewType(position);
+        }
+
 
         switch (direction) {
+            //左滑
             case LEFT:
                 if (oniOSHeaderListViewLeftScrollListener != null) {
-                    if (viewType == HEADER) {
+                    if (viewType == TOP_HEADER) {
+                        //這裡是為了確保置頂header的行為所對應的類別符合邏輯
+                        int topHeaderPosition = listView.getFirstVisiblePosition();
+                        if(topHeaderPosition>0){
+                            topHeaderPosition = topHeaderPosition -1;
+                        }
+                        oniOSHeaderListViewLeftScrollListener.onHeaderLeftScroll(topHeaderPosition);
+
+                    } else if (viewType == HEADER) {
                         oniOSHeaderListViewLeftScrollListener.onHeaderLeftScroll(position);
+
                     } else {
                         oniOSHeaderListViewLeftScrollListener.onItemLeftScroll(position);
                     }
                 }
                 break;
+            //右滑
             case RIGHT:
                 if (oniOSHeaderListViewRightScrollListener != null) {
-                    if (viewType == HEADER) {
+                    if (viewType == TOP_HEADER) {
+                        //這裡是為了確保置頂header的行為所對應的類別符合邏輯
+                        int topHeaderPosition = listView.getFirstVisiblePosition();
+                        if(topHeaderPosition>0){
+                            topHeaderPosition = topHeaderPosition -1;
+                        }
+                        oniOSHeaderListViewRightScrollListener.onHeaderRightScroll(topHeaderPosition);
+                    } else if (viewType == HEADER) {
                         oniOSHeaderListViewRightScrollListener.onHeaderRightScroll(position);
                     } else {
                         oniOSHeaderListViewRightScrollListener.onItemRightScroll(position);
@@ -302,7 +327,7 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
         this.oniOSHeaderListViewRightScrollListener = oniOSHeaderListViewRightScrollListener;
         //允許右滑
         listView.setRightScrollable(true);
-        scrollHeader.setRightScrollable(true);
+        scrollHeaderLayout.setRightScrollable(true);
     }
 
     public interface OniOSHeaderListViewRightScrollListener {
@@ -320,7 +345,7 @@ public class iOSHeaderListView extends LinearLayout implements AbsListView.OnScr
         this.oniOSHeaderListViewLeftScrollListener = oniOSHeaderListViewLeftScrollListener;
         //允許左滑
         listView.setLeftScrollable(true);
-        scrollHeader.setLeftScrollable(true);
+        scrollHeaderLayout.setLeftScrollable(true);
     }
 
     public interface OniOSHeaderListViewLeftScrollListener {

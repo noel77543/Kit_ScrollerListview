@@ -15,6 +15,8 @@ import android.widget.Scroller;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import tw.com.sung.noel.listview_kit_ios_header_style.implement.OnHorizontalScrollListener;
+
 /**
  * Created by noel on 2017/10/26.
  */
@@ -27,7 +29,7 @@ public class ScrollListView extends ListView {
     private boolean isLeftScrollable = false;
 
     //當前滑動的ListView　position
-    private int slidePosition;
+    private int scrollPosition;
     //手指按下Y的坐標
     private int downY;
     //手指按下X的坐標
@@ -41,11 +43,11 @@ public class ScrollListView extends ListView {
     //速度追蹤對象
     private VelocityTracker velocityTracker;
     //滑動的主要開關，預設為不執行
-    private boolean isSlide = false;
+    private boolean isScrollable = false;
     //滑動的最小距離
     private int scrollMinDistance;
     //滑動後的接口
-    private OnItemScrollListener onItemScrollListener;
+    private OnHorizontalScrollListener onHorizontalScrollListener;
 
     //滑動方向 向左 向右 不動
     public static final int LEFT = 9487;
@@ -88,7 +90,7 @@ public class ScrollListView extends ListView {
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         switch (event.getAction()) {
-            case MotionEvent.ACTION_DOWN: {
+            case MotionEvent.ACTION_DOWN:
                 addVelocityTracker(event);
 
                 // 假如scroller滾動還沒有結束，直接return
@@ -101,21 +103,21 @@ public class ScrollListView extends ListView {
                 downY = (int) event.getY();
 
                 //透過點選的x,y座標位置取得 該項index
-                slidePosition = pointToPosition(downX, downY);
+                scrollPosition = pointToPosition(downX, downY);
 
                 // 無效的position, 不做任何處理
-                if (slidePosition == AdapterView.INVALID_POSITION) {
+                if (scrollPosition == AdapterView.INVALID_POSITION) {
                     return super.dispatchTouchEvent(event);
                 }
 
                 // 獲取點擊的item view
-                itemView = getChildAt(slidePosition - getFirstVisiblePosition());
+                itemView = getChildAt(scrollPosition - getFirstVisiblePosition());
                 break;
-            }
+
             case MotionEvent.ACTION_MOVE:
                 //向右移動 與 向左移動
                 if ((Math.abs(event.getX() - downX) > scrollMinDistance && Math.abs(event.getY() - downY) < scrollMinDistance)) {
-                    isSlide = true;
+                    isScrollable = true;
                 }
                 break;
             case MotionEvent.ACTION_UP:
@@ -160,8 +162,8 @@ public class ScrollListView extends ListView {
     /**
      * 根據手指滾動itemView的距離來判斷是滾動到開始位置還是向左或者向右滾動
      */
-    private void scrollByDistanceX() {
-        // 如果向左滾動的距離大於屏幕的4分之1，就進行滑動該方向到底的動畫
+    private void scrollByHorizontalDistance() {
+        // 如果向左滾動的距離大於屏幕的3分之1，就進行滑動該方向到底
         if (itemView.getScrollX() >= screenWidth / 3) {
             scrollLeft();
         } else if (itemView.getScrollX() <= -screenWidth / 3) {
@@ -178,18 +180,18 @@ public class ScrollListView extends ListView {
      * 處理該itemView的拖曳
      */
     @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        if (isSlide && slidePosition != AdapterView.INVALID_POSITION) {
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        if (isScrollable && scrollPosition != AdapterView.INVALID_POSITION) {
             requestDisallowInterceptTouchEvent(true);
-            addVelocityTracker(ev);
-            final int action = ev.getAction();
-            int x = (int) ev.getX();
+            addVelocityTracker(motionEvent);
+            final int action = motionEvent.getAction();
+            int x = (int) motionEvent.getX();
             switch (action) {
                 case MotionEvent.ACTION_MOVE:
 
-                    MotionEvent cancelEvent = MotionEvent.obtain(ev);
+                    MotionEvent cancelEvent = MotionEvent.obtain(motionEvent);
                     cancelEvent.setAction(MotionEvent.ACTION_CANCEL |
-                            (ev.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
+                            (motionEvent.getActionIndex() << MotionEvent.ACTION_POINTER_INDEX_SHIFT));
                     onTouchEvent(cancelEvent);
 
                     int deltaX = downX - x;
@@ -204,16 +206,16 @@ public class ScrollListView extends ListView {
                     return false;
                 case MotionEvent.ACTION_UP:
 
-                    scrollByDistanceX();
+                    scrollByHorizontalDistance();
                     closeVelocityTracker();
                     // 手指離開的時候就不響應左右滾動
-                    isSlide = false;
+                    isScrollable = false;
                     break;
             }
         }
 
         //否則直接交給ListView來處理onTouchEvent事件
-        return super.onTouchEvent(ev);
+        return super.onTouchEvent(motionEvent);
     }
 
     //----------------------------
@@ -226,9 +228,9 @@ public class ScrollListView extends ListView {
             postInvalidate();
 
             // 滾動動畫結束的時候 移除該項目（slidePosition）
-            if (scroller.isFinished() && onItemScrollListener != null) {
+            if (scroller.isFinished() && onHorizontalScrollListener != null) {
                 itemView.scrollTo(0, 0);
-                onItemScrollListener.onItemScroll(scrollDirection, slidePosition);
+                onHorizontalScrollListener.onHorozontalScroll(scrollDirection, scrollPosition);
             }
         }
     }
@@ -284,22 +286,14 @@ public class ScrollListView extends ListView {
         return isLeftScrollable;
     }
 
-    //----------------------------
-
-    /**
-     * interface
-     */
-    public interface OnItemScrollListener {
-        void onItemScroll(@scrollDirection int direction, int position);
-    }
 
     //----------------------------
 
     /**
-     * 當ListView item滑出屏幕執行
+     * 當ListView 任何item滑出屏幕執行
      */
-    public void setOnItemScrollListener(OnItemScrollListener onItemScrollListener) {
-        this.onItemScrollListener = onItemScrollListener;
+    public void setOnHorizontalScrollListener(OnHorizontalScrollListener onHorizontalScrollListener) {
+        this.onHorizontalScrollListener = onHorizontalScrollListener;
     }
 
 }

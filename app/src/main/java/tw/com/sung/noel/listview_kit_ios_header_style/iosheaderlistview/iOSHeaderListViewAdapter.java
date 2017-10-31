@@ -10,6 +10,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 
+import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListView.HEADER;
+import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListView.ITEM;
+
 
 /**
  * Created by noel on 2017/10/12.
@@ -17,15 +20,6 @@ import java.util.ArrayList;
 
 public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
 
-    //header 或者 item
-    public static final int HEADER = 0;
-    public static final int ITEM = 1;
-
-    @IntDef({HEADER, ITEM})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface dataType {
-
-    }
 
     //是否 所有資料需要依照類別分類
     public static final int GROUP_TYPE_DEFAULT = 1111;
@@ -59,7 +53,7 @@ public abstract class iOSHeaderListViewAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View view, ViewGroup viewGroup) {
         ArrayList data = getData();
-        //若要重組
+        //若要依照類別重組
         if (getGroupType() == GROUP_TYPE_REGROUP) {
             setData(getReGroupData(data));
         }

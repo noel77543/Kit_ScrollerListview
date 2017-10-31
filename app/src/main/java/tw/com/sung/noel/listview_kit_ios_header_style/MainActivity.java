@@ -1,28 +1,24 @@
 package tw.com.sung.noel.listview_kit_ios_header_style;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import tw.com.sung.noel.listview_kit_ios_header_style.implement.OnScrollItemClickListener;
+import tw.com.sung.noel.listview_kit_ios_header_style.implement.OnScrollItemLongClickListener;
 import tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListView;
 import tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter;
 
-import static tw.com.sung.noel.listview_kit_ios_header_style.iosheaderlistview.iOSHeaderListViewAdapter.HEADER;
 
-public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewItemClickListener, iOSHeaderListView.OniOSHeaderListViewScrollListener, iOSHeaderListView.OniOSHeaderListViewItemLongClickListener, iOSHeaderListView.OniOSHeaderListViewHeaderClickListener, iOSHeaderListView.OniOSHeaderListViewRightScrollListener, iOSHeaderListView.OniOSHeaderListViewLeftScrollListener {
+public class MainActivity extends AppCompatActivity implements iOSHeaderListView.OniOSHeaderListViewScrollListener, iOSHeaderListView.OniOSHeaderListViewRightScrollListener, iOSHeaderListView.OniOSHeaderListViewLeftScrollListener, OnScrollItemClickListener, OnScrollItemLongClickListener {
 
     @BindView(R.id.listview)
     iOSHeaderListView listview;
@@ -35,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
         init();
     }
+
 
     private void init() {
         adapter = new TestAdapter(this);
@@ -46,11 +42,13 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
         adapter.setGroupType(iOSHeaderListViewAdapter.GROUP_TYPE_REGROUP);
 
         listview.setOniOSHeaderListViewItemClickListener(this);
+
         listview.setOniOSHeaderListViewScrollListener(this);
+
         listview.setOniOSHeaderListViewItemLongClickListener(this);
-        listview.setOniOSHeaderListViewHeaderClickListener(this);
+
         listview.setOniOSHeaderListViewRightScrollListener(this);
-//        listview.setOniOSHeaderListViewLeftScrollListener(this);
+        listview.setOniOSHeaderListViewLeftScrollListener(this);
 
     }
 
@@ -99,47 +97,52 @@ public class MainActivity extends AppCompatActivity implements iOSHeaderListView
 
     @Override
     public void oniOSHeaderListViewItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        TestModel testModel = (TestModel) adapterView.getAdapter().getItem(i);
-        Log.e("第" + i, testModel.getAge());
-    }
-
-    @Override
-    public void oniOSHeaderListViewScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-
-    }
-
-    @Override
-    public void oniOSHeaderListViewScrollStateChanged(AbsListView absListView, int i) {
-
-    }
-
-    @Override
-    public void oniOSHeaderListViewItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+        Log.e("Click", "oniOSHeaderListViewItemClick");
     }
 
     @Override
     public void oniOSHeaderListViewHeaderClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Log.e("Click", "oniOSHeaderListViewHeaderClick");
+    }
 
+    @Override
+    public void oniOSHeaderListViewItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Log.e("LongClick", "oniOSHeaderListViewItemLongClick");
+    }
+
+    @Override
+    public void oniOSHeaderListViewHeaderLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Log.e("LongClick", "oniOSHeaderListViewHeaderLongClick");
+    }
+
+    @Override
+    public void oniOSHeaderListViewScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+//        Log.e("scroll", "oniOSHeaderListViewScroll");
+    }
+
+    @Override
+    public void oniOSHeaderListViewScrollStateChanged(AbsListView absListView, int i) {
+//        Log.e("scroll", "oniOSHeaderListViewScrollStateChanged");
     }
 
     @Override
     public void onHeaderRightScroll(int position) {
-        Log.e("scroll","onHeaderRightScroll");
+        Log.e("scroll", "onHeaderRightScroll");
     }
 
     @Override
     public void onItemRightScroll(int position) {
-        Log.e("scroll","onItemRightScroll");
+        Log.e("scroll", "onItemRightScroll");
     }
 
     @Override
     public void onHeaderLeftScroll(int position) {
-
+        Log.e("scroll", "onHeaderLeftScroll");
     }
 
     @Override
     public void onItemLeftScroll(int position) {
-
+        Log.e("scroll", "onItemLeftScroll");
     }
+
 }
