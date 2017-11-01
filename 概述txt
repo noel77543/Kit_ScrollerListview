@@ -1,9 +1,0 @@
-目前功能
-1.是否自動排序:
-iOSHeaderListViewAdapter.setGroupType(iOSHeaderListViewAdapter.GROUP_TYPE_REGROUP);//啟動自動排序
-iOSHeaderListViewAdapter.setGroupType(iOSHeaderListViewAdapter.GROUP_TYPE_DEFAULT);//預設無排序
-2.開放OnItemClickListener
-3.開放OnItemLongClickListener
-4.開放OnScrollListener之onScroll
-5.開放OnScrollListener之onScrollStateChange
-6.置頂title具備仿ios滑動選擇刪除該項目的功能 這邊作為刪除所有資料中該類所有
